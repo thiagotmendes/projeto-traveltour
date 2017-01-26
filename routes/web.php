@@ -18,3 +18,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::group(['prefix' => 'agencia'], function(){
+  Route::get('lista', 'agenciaController@listaAgencia');
+  Route::get('cadastrar', 'agenciaController@cadastrarAgencia');
+  Route::post('adicionar', 'agenciaController@insertBanco');
+});

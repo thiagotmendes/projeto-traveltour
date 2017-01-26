@@ -1,0 +1,23 @@
+{
+  "name": "projeto-traveltour",
+  "description": "Projeto de sistema para agremamento de agencias de viajem",
+  "main": "",
+  "authors": [
+    "Thiago Mendes <thiagotmendes@outlook.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/thiagotmendes/projeto-traveltour",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "devDependencies": {
+    "font-awesome": "fontawesome#^4.7.0",
+    "jquery": "^3.1.1",
+    "jquery.maskedinput": "^1.4.1",
+    "bootstrap-validator": "^0.11.9"
+  }
+}

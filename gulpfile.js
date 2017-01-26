@@ -15,5 +15,12 @@ require('laravel-elixir-vue-2');
 
 elixir(mix => {
     mix.sass('app.scss')
-       .webpack('app.js');
+       .webpack('app.js')
+       .webpack('consultaCorreios.js')
+       .webpack('funcoes.js');
+    mix.copy('bower_components/font-awesome/fonts','public/fonts')
+       .copy('bower_components/font-awesome/css/font-awesome.min.css', 'public/css')
+       .copy('bower_components/jquery/dist/jquery.min.js','public/js')
+       .copy('bower_components/jquery.maskedinput/dist/jquery.maskedinput.min.js','public/js')
+       .copy('bower_components/bootstrap-validator/dist/validator.min.js','public/js');
 });
