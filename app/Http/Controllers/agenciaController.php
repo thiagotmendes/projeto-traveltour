@@ -24,7 +24,8 @@ class agenciaController extends Controller
   // GERA GRID
   public function listaAgencia()
   {
-    return view('grid.gridAgencia');
+    $queryAgencia = DB::table('agencia')->get();
+    return view('grid.gridAgencia', ['listaAgencia' => $queryAgencia]);
   }
 
   // INSERE NO BANCO DE DADOS
@@ -44,8 +45,28 @@ class agenciaController extends Controller
     $cidade = $addAgencia->cidade;
     /***************************************/
 
-    if ($addJogos->_token):
+    if ($addAgencia->_token):
+      DB::table('agencia')->insert(
+        [
+          'nome'  => $nome,
+          'tel'   => $telefone,
+          'email' => $email,
+          'logo'  => 'aqui entra valor',
+          'certificado'       => 'aqui entra valor',
+          'data_inicio_cert'  => '2018-01-01',
+          'data_fim_cert'     => '2018-01-01',
+          'endereco'          => $endereco,
+          'num'               => $num,
+          'bairro'            => $bairro,
+          'cidade'            => $cidade,
+          'estado'            => $estado,
+          'idstatus'          => 0,
+          'idplano'           => 0,
+          'created_at'        => DB::raw('now()')
+        ]
+      );
 
+      return redirect('agencia/cadastrar?msg=ok');
     else:
       echo "realizar ajuste de erro";
     endif;

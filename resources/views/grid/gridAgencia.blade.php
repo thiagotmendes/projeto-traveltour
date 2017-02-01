@@ -11,14 +11,27 @@
         <div class="clearfix"> </div>
       </div>
       <div class="panel-body">
-        <table class="table table-bordered">
+        <table id="grid" class="table table-bordered table-striped table-hover">
           <thead>
             <tr>
               <td> Nome </td>
               <td></td>
               <td></td>
+              <td> Editar </td>
+              <td> Excluir </td>
             </tr>
           </thead>
+          <tbody>
+            @foreach ($listaAgencia as $lista)
+              <tr>
+                <td> {{$lista->nome}} </td>
+                <td> {{$lista->email}} </td>
+                <td> {{$lista->tel}} </td>
+                <td width='5%' class="text-center"> <a href="#" class="btn btn-info"> <i class="fa fa-pencil-square-o" aria-hidden="true"></i> </a> </td>
+                <td width='5%' class="text-center"> <a href="#" class="btn btn-danger"> <i class="fa fa-trash" aria-hidden="true"></i> </a> </td>
+              </tr>
+            @endforeach
+          </tbody>
         </table>
       </div>
     </div>

@@ -14,4 +14,6 @@ jQuery(document).ready(function($) {
         element.mask("(99) 99999-999?9");
     }
   });
+
+  $('#grid').DataTable();
 });

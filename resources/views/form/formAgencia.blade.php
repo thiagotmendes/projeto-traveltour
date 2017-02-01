@@ -14,6 +14,11 @@
         <div class="clearfix"></div>
       </div>
       <div class="panel-body">
+        @if (isset($_GET['msg']) and $_GET['msg'] == 'ok')
+          <div class="alert alert-success">
+            Cadastro efetuado com sucesso.
+          </div>
+        @endif
         <form class="" action="{{ url('agencia/adicionar') }}" method="post" role="form" data-toggle="validator">
           <!-- row -->
           <div class="row">
