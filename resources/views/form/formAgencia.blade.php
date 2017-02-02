@@ -20,14 +20,118 @@
           </div>
         @endif
         <form class="" action="{{ url('agencia/adicionar') }}" method="post" role="form" data-toggle="validator">
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="cnpj">CNPJ</label>
+                <input type="text" name="cnpj" id="cnpj" class="form-control" placeholder="" required>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="data_abertura">Data Abertura</label>
+                <input type="text" name="data_abertura"  class="form-control data" id="data_abertura" placeholder="" required>
+              </div>
+            </div>
+          </div>
+          <!-- row -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="nome_fantasia">Nome Fantasia</label>
+                <input type="text" class="form-control" name="nome_fantasia" id="nome_fantasia"  data-match-error="Whoops, these don't match" placeholder="Nome" required>
+                <div class="help-block with-errors"></div>
+                {{ csrf_field() }}
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="razao_social"> Razão Social </label>
+                <input type="text" class="form-control" name="razao_social" id="razao_social" placeholder="" required>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="cadastour"> Cadastour </label>
+                <input type="text" class="form-control" id="cadastour" name="cadastour" placeholder="" required>
+              </div>
+            </div>
+          </div>
+          <!-- /row -->
           <!-- row -->
           <div class="row">
             <div class="col-md-6">
               <div class="form-group">
-                <label for="nome">Nome</label>
-                <input type="text" class="form-control" name="nome" id="nome"  data-match-error="Whoops, these don't match" placeholder="Nome" required>
+                <label for="inscricao_estadual">Inscrição Estadual</label>
+                <input type="text" class="form-control" name="inscricao_estadual" id="inscricao_estadual" placeholder="" required>
+              </div>
+            </div>
+            <div class="col-md-1">
+              <div class="form-group">
+                <label for="isento_inscEstadual"> Isento </label>
+                <select class="form-control" name="isento_inscEstadual" required>
+                  <option value=""></option>
+                  <option> Sim </option>
+                  <option> Não </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-2">
+              <div class="form-group">
+                <label for="inscricao_municipal"> Inscrição Municipal </label>
+                <select class="form-control" name="inscricao_municipal" required>
+                  <option value=""></option>
+                  <option value="isento"> Isento </option>
+                  <option value="nao_isento"> Não Isento </option>
+                </select>
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="porte"> Porte </label>
+                <select class="form-control" name="porte">
+                  <option value=""></option>
+                  <option> Microempresa </option>
+                  <option> Empresa de pequeno porte </option>
+                  <option> Empresa de médio ou grande porte </option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <!-- /row -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="representante"> Representante </label>
+                <input type="text" class="form-control" name="representante" id="representante" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="cpf_representante"> CPF Representante </label>
+                <input type="text" class="form-control" name="cpf_representante" id="cpf_representante" placeholder="">
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="form-group">
+                <label for="data_nasc_representante"> Data Nascimento </label>
+                <input type="text" class="form-control data" name="data_nasc_representante" id="data_nasc_representante" placeholder="">
+              </div>
+            </div>
+          </div>
+          <!-- /row -->
+          <div class="row">
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="telefone"> Telefone </label>
+                <input type="text" class="form-control telefone" name="telefone" id="telefone" placeholder="">
                 <div class="help-block with-errors"></div>
-                {{ csrf_field() }}
+              </div>
+            </div>
+            <div class="col-md-3">
+              <div class="form-group">
+                <label for="celular"> Celular </label>
+                <input type="text" class="form-control telefone " name="celular" id="celular" placeholder="">
               </div>
             </div>
             <div class="col-md-3">
@@ -39,13 +143,11 @@
             </div>
             <div class="col-md-3">
               <div class="form-group">
-                <label for="telefone"> Telefone </label>
-                <input type="text" class="form-control" name="telefone" id="telefone" placeholder="">
-                <div class="help-block with-errors"></div>
+                <label for="telefonia_gratuita"> Serviço de Telefonia Gratuita </label>
+                <input type="text" class="form-control" name="telefonia_gratuita" id="telefonia_gratuita" placeholder="">
               </div>
             </div>
           </div>
-          <!-- /row -->
           <!-- row -->
           <div class="row">
             <div class="col-md-4">
@@ -63,17 +165,18 @@
             <div class="col-md-2">
               <div class="form-group">
                 <label for="data-ini">Data inicio</label>
-                <input type="text" class="form-control" name="data-ini" id="dataIni" placeholder="">
+                <input type="text" class="form-control data" name="dataIni" id="data-ini" placeholder="">
               </div>
             </div>
             <div class="col-md-2">
               <div class="form-group">
                 <label for="data-fim">Data Expira</label>
-                <input type="text" class="form-control" name="data-fim" id="dataFim" placeholder="">
+                <input type="text" class="form-control data" name="dataFim" id="data-fim" placeholder="">
               </div>
             </div>
           </div>
           <!-- /row -->
+
           <!-- row -->
             <div class="row">
               <div class="col-md-2">
