@@ -24,3 +24,8 @@ Route::group(['prefix' => 'agencia'], function(){
   Route::get('cadastrar', 'agenciaController@cadastrarAgencia');
   Route::post('adicionar', 'agenciaController@insertBanco');
 });
+
+Route::group(['prefix' => 'servicos'], function(){
+  Route::post('add', 'servicosController@cadastraServico');
+  Route::get('lista','servicosController@listaServicos');
+});

@@ -25,7 +25,8 @@ class agenciaController extends Controller
   public function listaAgencia()
   {
     $queryAgencia = DB::table('agencia')->get();
-    return view('grid.gridAgencia', ['listaAgencia' => $queryAgencia]);
+    $queryServicos = DB::table('servicos')->get();
+    return view('grid.gridAgencia', ['listaAgencia' => $queryAgencia, 'listaServicosView' => $queryServicos]);
   }
 
   // INSERE NO BANCO DE DADOS

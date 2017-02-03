@@ -8,13 +8,18 @@
         <a href="{{url('agencia/cadastrar')}}" class="btn btn-info pull-right btn-direito">
           Cadastrar Agência
         </a>
-        <a href="#" class="btn btn-warning pull-right">
+        <a href="#" class="btn btn-warning pull-right" data-toggle="modal" data-target="#modalSerivocs">
           Cadastrar Serviços
         </a>
         <div class="clearfix"> </div>
       </div>
       <div class="panel-body">
-        <table id="grid" class="table table-bordered table-striped table-hover">
+        @if (isset($_GET['msg']) and $_GET['msg'] == 'servico_ok')
+          <div class="alert alert-success">
+            Um novo serviço foi adicionado
+          </div>
+        @endif
+        <table id="grid" class="table table-bordered table-striped table-hover grid">
           <thead>
             <tr>
               <td> Nome </td>
@@ -53,4 +58,20 @@
       </div>
     </div>
   </div>
+
+  <!-- Modal -->
+<div class="modal fade" id="modalSerivocs" tabindex="-1" role="dialog" aria-labelledby="modalSerivocs">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> Cadastrar Serviços </h4>
+      </div>
+      <div class="modal-body">
+        @include('form.formServicos')
+        @include('grid.gridServicos')
+      </div>
+    </div>
+  </div>
+</div>
 @endsection
