@@ -27,4 +27,16 @@ class servicosController extends Controller
     $queryServicos = DB::table('servicos')->get();
     return view::make('grid.gridServicos', ['listaServicosView' => $queryServicos]);
   }
+
+  public function adcLingua(Request $adcLingua)
+  {
+    DB::table('lingua_atendimento')->insert(
+      [
+        'descricao'   => $adcLingua->lingua,
+        'created_at'  => DB::raw('now()')
+      ]
+    );
+
+    return redirect('agencia/lista?msg=lingua_ok');
+  }
 }

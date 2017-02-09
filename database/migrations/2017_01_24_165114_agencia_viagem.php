@@ -21,7 +21,7 @@ class AgenciaViagem extends Migration
             $table->string('nome_fantasia');
             $table->string('razao_social');
             $table->string('cadastour');
-            $table->string('inscrição_estadual');
+            $table->string('inscricao_estadual');
             $table->string('isento');
             $table->string('inscricao_municipal');
             $table->string('porte');
