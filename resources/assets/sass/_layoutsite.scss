@@ -1,0 +1,53 @@
+.main{
+  min-height: 400px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+// adicionais
+.menu-estados{
+  padding: 0px;
+  margin: 0px;
+  list-style:none;
+}
+
+.menu-estados li a{
+  border-left: $backgroundBarSite solid 3px;
+  padding-left: 10px;
+  color: #000;
+  transition-duration: 0.3s;
+}
+
+.menu-estados li a:hover{
+  border-left: $backgroundHoverMenu solid 3px;
+  color: $backgroundHoverMenu;
+  text-decoration: none;
+}
+
+
+// rodape
+footer{
+  background-color: #6BA7D9;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+// footer
+.navbar-brand{
+  height: auto;
+}
+
+.navbar-site{
+  background-color: $backgroundBarSite;
+  border-radius: 0px;
+
+  .navbar-nav > li > a{
+    color: #fff;
+  }
+  .navbar-nav > li > a:hover,
+  .navbar-nav > li > a:focus,
+  .navbar-nav > li.active > a{
+    background-color:$backgroundHoverMenu;
+    color: #fff !important;
+  }
+}

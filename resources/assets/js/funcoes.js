@@ -16,3 +16,23 @@ jQuery(document).ready(function($) {
 
   $('.grid').DataTable();
 });
+
+tinymce.init({
+  selector: 'textarea',  // change this value according to your HTML
+  cache_suffix: '?v=4.1.6'
+});
+
+jQuery(document).ready(function($) {
+  $(document).on('click','.btnAdcCode', function(){
+    var variavel = $(this).data('ag');
+    $('#modalLinksExternos').modal('show');
+    $('.idAgenciaLink').val(variavel);
+    return variavel;
+  });
+
+  $(document).on('click', '.btnAddItem', function(){
+    $('.conteudoInput').append('<div class="col-md-4"><input type="text" name="titulo[]" value="" placeholder="Titulo" class="form-control"></div>')
+    $('.conteudoInput').append('<div class="col-md-8"><div class="input-group"><input type="text" name="link[]" class="form-control" placeholder="Adicionar Codigo para incorporação"><span class="input-group-btn"><button class="btn btn-default btnAddItem" type="button"> Add <i class="fa fa-plus-circle fa-1x" aria-hidden="true"></i> </button></span></div></div>');
+  });
+
+});

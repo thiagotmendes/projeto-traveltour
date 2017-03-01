@@ -71,15 +71,15 @@
                 <label for="isento_inscEstadual"> Isento </label>
                 <select class="form-control" name="isento_inscEstadual" required>
                   <option value=""></option>
-                  @if ($DadoAgencia[0]->isento == "Sim")
+                  @if (isset($DadoAgencia[0]->isento) and $DadoAgencia[0]->isento == "Sim")
                     <option selected> Sim </option>
                     <option> Não </option>
-                  @elseif($DadoAgencia[0]->isento == "Não")
+                  @elseif(isset($DadoAgencia[0]->isento) and $DadoAgencia[0]->isento == "Não")
                   <option> Sim </option>
                   <option selected> Não </option>
                   @else
-                  <option> Sim </option>
-                  <option> Não </option>
+                    <option> Sim </option>
+                    <option> Não </option>
                   @endif
                 </select>
               </div>
@@ -89,10 +89,10 @@
                 <label for="inscricao_municipal"> Inscrição Municipal </label>
                 <select class="form-control" name="inscricao_municipal" required>
                   <option value=""></option>
-                  @if ($DadoAgencia[0]->inscricao_municipal == "isento")
+                  @if (isset($DadoAgencia[0]->inscricao_municipal) and $DadoAgencia[0]->inscricao_municipal == "isento")
                     <option value='isento' selected> Isento </option>
                     <option value='nao_isento'> Não Isento </option>
-                  @elseif($DadoAgencia[0]->inscricao_municipal == "nao_isento")
+                  @elseif(isset($DadoAgencia[0]->inscricao_municipal) and $DadoAgencia[0]->inscricao_municipal) and $DadoAgencia[0]->inscricao_municipal == "nao_isento")
                     <option value='isento'> Isento </option>
                     <option value='nao_isento' selected> Não Isento </option>
                   @else
@@ -107,15 +107,15 @@
                 <label for="porte"> Porte </label>
                 <select class="form-control" name="porte">
                   <option value=""></option>
-                  @if ($DadoAgencia[0]->porte == "Microempresa")
+                  @if (isset($DadoAgencia[0]->porte) and $DadoAgencia[0]->porte == "Microempresa")
                     <option selected> Microempresa </option>
                     <option> Empresa de pequeno porte </option>
                     <option> Empresa de médio ou grande porte </option>
-                  @elseif($DadoAgencia[0]->porte == "Empresa de pequeno porte")
+                  @elseif(isset($DadoAgencia[0]->porte) and $DadoAgencia[0]->porte == "Empresa de pequeno porte")
                     <option> Microempresa </option>
                     <option selected> Empresa de pequeno porte </option>
                     <option> Empresa de médio ou grande porte </option>
-                  @elseif($DadoAgencia[0]->porte == "Empresa de médio ou grande porte")
+                  @elseif(isset($DadoAgencia[0]->porte) and $DadoAgencia[0]->porte == "Empresa de médio ou grande porte")
                     <option> Microempresa </option>
                     <option> Empresa de pequeno porte </option>
                     <option selected> Empresa de médio ou grande porte </option>

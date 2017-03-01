@@ -12,6 +12,14 @@
   width: 100% !important;
 }
 
+.conteudoInput {
+  margin-bottom: 15px;
+}
+
+.tela-dados .row {
+  margin-bottom: 30px;
+}
+
 /*!
  * Bootstrap v3.3.7 (http://getbootstrap.com)
  * Copyright 2011-2016 Twitter, Inc.

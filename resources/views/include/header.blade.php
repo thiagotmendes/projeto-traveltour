@@ -48,7 +48,7 @@
                       @if (!Auth::guest())
                         <li><a href="{{url('agencia/lista')}}">Agências</a></li>
                         <li><a href="">Usuários</a></li>
-                        <li><a href="">Institucional</a></li>
+                        <li><a href="{{url('institucional/paginas')}}">Institucional</a></li>
                       @endif
                     </ul>
 

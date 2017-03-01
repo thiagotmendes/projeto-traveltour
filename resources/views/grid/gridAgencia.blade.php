@@ -27,15 +27,22 @@
             Uma nova lingua foi adicionada
           </div>
         @endif
+        @if (isset($_GET['msg']) and $_GET['msg'] == "link_ok")
+          <div class="alert alert-success">
+            Link inserido com sucesso!
+          </div>
+        @endif
         <table id="grid" class="table table-bordered table-striped table-hover grid">
           <thead>
             <tr>
-              <td> Nome </td>
+              <th> Nome </th>
+              <th> Email </th>
+              <th> Telefone </th>
+              <td> </td>
+              <td> </td>
+              <td> </td>
+              <td> </td>
               <td></td>
-              <td></td>
-              <td></td>
-              <td> Editar </td>
-              <td> Excluir </td>
             </tr>
           </thead>
           <tbody>
@@ -44,6 +51,16 @@
                 <td> {{$lista->nome_fantasia  }} </td>
                 <td> {{$lista->email}} </td>
                 <td> {{$lista->tel}} </td>
+                <td width='5%' class="text-center">
+                  <a href="{{url('agencia/dados/'.$lista->idagencia)}}" class="btn btn-primary">
+                    <i class="fa fa-eye" aria-hidden="true"></i>
+                  </a>
+                </td>
+                <td width='5%' class="text-center">
+                  <a href="#" class="btn btn-success btnAdcCode" alt="Codigo iframe" data-ag="{{$lista->idagencia}}">
+                    <i class="fa fa-code" aria-hidden="true"></i>
+                  </a>
+                </td>
                 <td width='5%' class="text-center">
                   <a href="{{url('agencia/adcServicos/'.$lista->idagencia)}}" class="btn btn-warning">
                     <i class="fa fa-cogs" aria-hidden="true"></i>
@@ -97,9 +114,54 @@
     </div>
   </div>
 </div>
+
+<!-- ADICIONA LINK CONTEUDO PARA AGENCIA -->
+<div class="modal fade" id="modalLinksExternos" tabindex="-1" role="dialog" aria-labelledby="modalLingua">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel"> Adicionar conteudo externo </h4>
+      </div>
+      <form class="formAdcLink" action="{{url('agencia/linksExternos')}}" method="post">
+        <div class="modal-body">
+            <input type="hidden" name="idAgenciaLink" class="idAgenciaLink" name="" value="">
+            {{csrf_field()}}
+            <div class="row">
+              <div class="col-md-4">
+                <input type="text" name="titulo[]" value="" class="form-control" placeholder="Titulo">
+              </div>
+              <div class="col-md-8">
+                <div class="input-group">
+                  <input type="text" name="link[]" class="form-control" placeholder="Adicionar Codigo para incorporação">
+                  <span class="input-group-btn">
+                    <button class="btn btn-default btnAddItem" type="button"> Add <i class="fa fa-plus-circle fa-1x" aria-hidden="true"></i> </button>
+                  </span>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="">
+              <div class="row conteudoInput">
+
+              </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+          <div class="row">
+            <div class="col-md-4 col-md-offset-4">
+              <button type="submit" name="button" class="btn btn-success btn-block"> Salvar </button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
 @endsection
 
-@yield('js')
+
   <script type="text/javascript">
     function confirmaDel(id) {
       var confirma = confirm("Deseja remover esse País?");

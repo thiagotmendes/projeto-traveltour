@@ -181,6 +181,7 @@ class agenciaController extends Controller
     );
   }
 
+  // ADICIONA SERVIÇO PARA AGENCIA
   public function gerenciaCadastro(Request $addServico)
   {
     $idAgencia = $addServico->idagencia;
@@ -192,7 +193,7 @@ class agenciaController extends Controller
                                   ->where('idagencia',$idAgencia)
                                   ->where('idservicos',$servicos)
                                   ->get();
-
+        var_dump($queryServicoAgencia);
         if(count($queryServicoAgencia) == 0){
           DB::table('servicos_agencia')->insert(
             [
@@ -201,14 +202,15 @@ class agenciaController extends Controller
               'created_at'  => DB::raw('now()')
             ]
           );
-          return redirect('agencia/adcServicos/'.$idAgencia."?msg=ok");
-        } else {
-          return redirect('agencia/adcServicos/'.$idAgencia."?msg=erro");
         }
+        return redirect('agencia/adcServicos/'.$idAgencia."?msg=ok");
       }
+    } else {
+      return redirect('agencia/adcServicos/'.$idAgencia."?msg=erro");
     }
   }
 
+  // CADASTRA AS LINGUAS EM UMA AGENCIA
   public function gerenciacadastroLingua(Request $adcLingua)
   {
     $idAgencia = $adcLingua->idagencia;
@@ -229,13 +231,59 @@ class agenciaController extends Controller
               'created_at'  => DB::raw('now()')
             ]
           );
-          return redirect('agencia/adcServicos/'.$idAgencia."?msg=ok_lingua");
-        } else {
-          return redirect('agencia/adcServicos/'.$idAgencia."?msg=erro_lingua");
+        }
+      }
+      return redirect('agencia/adcServicos/'.$idAgencia."?msg=ok_lingua");
+    } else {
+      return redirect('agencia/adcServicos/'.$idAgencia."?msg=erro_lingua");
+    }
+  }
+
+  // ADICIONA OS LINKS EXTERNOS
+  public function CadastroLinkExterno(Request $addLinkExterno)
+  {
+    if ($addLinkExterno->_token) {
+      $tituloLink = $addLinkExterno->titulo;
+      $descricaoLink = $addLinkExterno->link;
+      $count = 0;
+      if (!empty($tituloLink)) {
+        foreach ($tituloLink as $titulo) {
+          DB::table('link_externo_agencia')->insert(
+            [
+              'idagencia' => $addLinkExterno->idAgenciaLink,
+              'titulo'    => $titulo,
+              'descricao' => $descricaoLink[$count],
+              'created_at'  => DB::raw('now()')
+            ]
+          );
+          $count++;
         }
       }
     }
+    return redirect('agencia/lista?msg=link_ok');
+  }
 
+  public function dadosAgencia($id)
+  {
+    $queryPrincipalAgencia = DB::table('agencia')->where('idagencia',$id)->get();
+    // capta os serviços da agencia
+    $queryServicoAgencia = DB::table('servicos')
+                              ->join('servicos_agencia', 'servicos.idservicos','servicos_agencia.idservicos' )
+                              ->where('servicos_agencia.idagencia',$id)
+                              ->get();
+    // capta as linguas de cada agencia
+    $queryLinguasAgencia = DB::table('lingua_atendimento')
+                              ->join('lingua_agencia', 'lingua_atendimento.idlingua','lingua_agencia.idlingua')
+                              ->where('lingua_agencia.idagencia',$id)
+                              ->get();
+
+    return view('grid.gridDadosAgencia',
+                  [
+                  'agencia' => $queryPrincipalAgencia,
+                  'listaServico' => $queryServicoAgencia,
+                  'lista_linguas' => $queryLinguasAgencia
+                  ]
+                );
   }
 
 }

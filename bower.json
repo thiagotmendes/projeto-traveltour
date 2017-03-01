@@ -19,6 +19,8 @@
     "jquery": "^3.1.1",
     "jquery.maskedinput": "^1.4.1",
     "bootstrap-validator": "^0.11.9",
-    "datatables": "datatable#^1.10.13"
+    "datatables": "datatable#^1.10.13",
+    "tinymce": "^4.5.3",
+    "bootstrap": "^3.3.7"
   }
 }
