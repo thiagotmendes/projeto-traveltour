@@ -7800,6 +7800,15 @@ button.close {
   fill: #5a95ce;
 }
 
+h1, h2, h3 {
+  margin-top: 0px;
+  margin-bottom: 15px;
+}
+
+.menu-estados {
+  margin-top: 20px;
+}
+
 .main {
   min-height: 400px;
   padding-top: 20px;

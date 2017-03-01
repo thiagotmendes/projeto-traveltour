@@ -12,6 +12,7 @@
 */
 
 Route::get('/', 'site_controller@index');
+Route::get('estado/{id?}','site_controller@filtraEstado');
 
 Auth::routes();
 
