@@ -13,13 +13,15 @@
 
 Route::get('/', 'site_controller@index');
 Route::get('estado/{id?}','site_controller@filtraEstado');
+Route::get('agencia/{slug}', 'site_controller@singleAgencia');
+Route::get('cidade/{cidade?}', 'site_controller@filtraCidade');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
 
 // agencia
-Route::group(['prefix' => 'agencia'], function(){
+Route::group(['prefix' => 'ger-agencia'], function(){
   // CRUDI agencia
   Route::get('lista', 'agenciaController@listaAgencia');
   Route::get('cadastrar/{id?}', 'agenciaController@cadastrarAgencia');

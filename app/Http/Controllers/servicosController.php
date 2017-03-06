@@ -18,7 +18,7 @@ class servicosController extends Controller
           'created_at'  => DB::raw('now()')
         ]
       );
-      return redirect('agencia/lista?msg=servico_ok');
+      return redirect('ger-agencia/lista?msg=servico_ok');
     }
   }
 
@@ -37,6 +37,6 @@ class servicosController extends Controller
       ]
     );
 
-    return redirect('agencia/lista?msg=lingua_ok');
+    return redirect('ger-agencia/lista?msg=lingua_ok');
   }
 }

@@ -51,6 +51,7 @@ class agenciaController extends Controller
     $cnpj                     = $addAgencia->cnpj;
     $data_abertura            = $addAgencia->data_abertura;
     $nome_fantasia            = $addAgencia->nome_fantasia;
+    $slugSite                 = str_slug($addAgencia->nome_fantasia, '-');
     $razao_social             = $addAgencia->razao_social;
     $cadastour                = $addAgencia->cadastour;
     $inscricao_estadual       = $addAgencia->inscricao_estadual;
@@ -73,6 +74,8 @@ class agenciaController extends Controller
     $bairro                   = $addAgencia->bairro;
     $estado                   = $addAgencia->estado;
     $cidade                   = $addAgencia->cidade;
+    $slugCidade               = str_slug($addAgencia->cidade, '-');
+
     /***************************************/
     //  VERIFICA SE EXISTE ARQUIVO PARA LOGO
     if(!empty(Input::file('logo'))):
@@ -81,7 +84,7 @@ class agenciaController extends Controller
       // captura a extensão do arquivo
       $extension = Input::file('logo')->getClientOriginalExtension();
       // cria um nome para o arquivo
-      $filename = 'arq-'.str_replace(' ','-',$nome_fantasia)."-". rand(1111,9999) .".". $extension;
+      $filename = 'arq-'.str_replace(' ','-',$slugSite)."-". rand(1111,9999) .".". $extension;
       $extencao = array('jpg','png');
       //VERIFICA A EXTENSÃO DO ARQIVO
       if(in_array($extension,$extencao)){
@@ -141,11 +144,15 @@ class agenciaController extends Controller
           'estado'            => $estado,
           'idstatus'          => 0,
           'idplano'           => 0,
-          'created_at'        => DB::raw('now()')
+          'created_at'        => DB::raw('now()'),
+          'slug'              => $slugSite,
+          'cep'               => $cep,
+          'descricao'         => 'vazio',
+          'slug-cidade'       => $slugCidade
         ]
       );
 
-      return redirect('agencia/cadastrar?msg=ok');
+      return redirect('ger-agencia/cadastrar?msg=ok');
     else:
       echo "realizar ajuste de erro";
     endif;
@@ -158,7 +165,7 @@ class agenciaController extends Controller
     DB::table('servicos_agencia')->where('idagencia', '=', $id)->delete();
     DB::table('lingua_agencia')->where('idagencia', '=', $id)->delete();
 
-    return redirect('agencia/lista?msg=delete_ok');
+    return redirect('ger-agencia/lista?msg=delete_ok');
   }
 
   public function adcServicos($id)
@@ -203,10 +210,10 @@ class agenciaController extends Controller
             ]
           );
         }
-        return redirect('agencia/adcServicos/'.$idAgencia."?msg=ok");
+        return redirect('ger-agencia/adcServicos/'.$idAgencia."?msg=ok");
       }
     } else {
-      return redirect('agencia/adcServicos/'.$idAgencia."?msg=erro");
+      return redirect('ger-agencia/adcServicos/'.$idAgencia."?msg=erro");
     }
   }
 
@@ -233,9 +240,9 @@ class agenciaController extends Controller
           );
         }
       }
-      return redirect('agencia/adcServicos/'.$idAgencia."?msg=ok_lingua");
+      return redirect('ger-agencia/adcServicos/'.$idAgencia."?msg=ok_lingua");
     } else {
-      return redirect('agencia/adcServicos/'.$idAgencia."?msg=erro_lingua");
+      return redirect('ger-agencia/adcServicos/'.$idAgencia."?msg=erro_lingua");
     }
   }
 
@@ -260,7 +267,7 @@ class agenciaController extends Controller
         }
       }
     }
-    return redirect('agencia/lista?msg=link_ok');
+    return redirect('ger-agencia/lista?msg=link_ok');
   }
 
   public function dadosAgencia($id)

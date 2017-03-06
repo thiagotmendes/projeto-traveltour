@@ -6,11 +6,33 @@ h1,h2,h3{
 .menu-estados{
   margin-top: 20px;
 }
+
+.dados-pessoais{
+  margin-bottom: 15px;
+}
+
+.links-adicionais{
+  margin-bottom: 20px; 
+}
+
 ///
 .main{
   min-height: 400px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.img-logo{
+  height: 150px;
+  overflow: hidden;
+  border:#ccc solid 1px;
+}
+
+.agencia-lista{
+  border:#ccc solid 1px;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
 // adicionais
@@ -25,11 +47,17 @@ h1,h2,h3{
   padding-left: 10px;
   color: #000;
   transition-duration: 0.3s;
+  font-size: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .menu-estados li a:hover{
-  border-left: $backgroundHoverMenu solid 3px;
-  color: $backgroundHoverMenu;
+  background-color: $backgroundHoverMenu;
+  border-left: $backgroundBarSite solid 3px;
+  color: #fff;
   text-decoration: none;
 }
 

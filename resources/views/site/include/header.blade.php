@@ -9,7 +9,7 @@
     <!-- Bootstrap -->
     <link rel="stylesheet" href="{{url('css/mainsite.css')}}">
     <link rel="stylesheet" href="{{asset('css/font-awesome.min.css')}}">
-    
+
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -20,7 +20,7 @@
   <body>
     <header>
       <div class="container">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="{{url('/')}}">
           <img src="{{asset('images/logomarca.png')}}" alt="">
         </a>
       </div>
@@ -39,7 +39,7 @@
           <!-- Collect the nav links, forms, and other content for toggling -->
           <div class="collapse navbar-collapse" id="navbar">
             <ul class="nav navbar-nav navbar-right">
-              <li class="active"><a href="#">Home</a></li>
+              <li class="active"><a href="{{url('/')}}">Home</a></li>
               <li><a href="#"></a></li>
 
             </ul>

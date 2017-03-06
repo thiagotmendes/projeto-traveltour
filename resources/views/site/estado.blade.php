@@ -6,17 +6,13 @@
       <input type="text" class="form-control" id="" placeholder="">
     </div>
   </div>
-
-  @foreach ($filtroEstado as $filtro)
-    <div class="row">
-      <div class="col-md-3">
-        @if (!empty($filtro->logo))
-          <img src="{{asset($filtro->logo)}}" alt="" class="img-responsive">
-        @endif    
+  <div class="row">
+    @foreach ($filtroEstado as $filtro)
+      <div class="col-md-2">
+        <a href="{{url('cidade/'.$filtro->slugCidade)}}">
+          {{$filtro->cidade}}
+        </a>
       </div>
-      <div class="col-md-9">
-        {{$filtro->nome_fantasia}}
-      </div>
-    </div>
-  @endforeach
+    @endforeach
+  </div>
 @endsection

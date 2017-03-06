@@ -46,7 +46,7 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                       @if (!Auth::guest())
-                        <li><a href="{{url('agencia/lista')}}">Agências</a></li>
+                        <li><a href="{{url('ger-agencia/lista')}}">Agências</a></li>
                         <li><a href="">Usuários</a></li>
                         <li><a href="{{url('institucional/paginas')}}">Institucional</a></li>
                       @endif

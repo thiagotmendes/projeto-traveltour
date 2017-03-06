@@ -19,7 +19,7 @@
             Cadastro efetuado com sucesso.
           </div>
         @endif
-        <form class="" action="{{ url('agencia/adicionar') }}" method="post" role="form" data-toggle="validator" enctype="multipart/form-data">
+        <form class="" action="{{ url('ger-agencia/adicionar') }}" method="post" role="form" data-toggle="validator" enctype="multipart/form-data">
           <div class="row">
             <div class="col-md-3">
               <div class="form-group">

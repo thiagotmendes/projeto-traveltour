@@ -7809,10 +7809,31 @@ h1, h2, h3 {
   margin-top: 20px;
 }
 
+.dados-pessoais {
+  margin-bottom: 15px;
+}
+
+.links-adicionais {
+  margin-bottom: 20px;
+}
+
 .main {
   min-height: 400px;
   padding-top: 20px;
   padding-bottom: 20px;
+}
+
+.img-logo {
+  height: 150px;
+  overflow: hidden;
+  border: #ccc solid 1px;
+}
+
+.agencia-lista {
+  border: #ccc solid 1px;
+  border-radius: 4px;
+  padding: 20px;
+  margin-bottom: 15px;
 }
 
 .menu-estados {
@@ -7827,11 +7848,17 @@ h1, h2, h3 {
   color: #000;
   -webkit-transition-duration: 0.3s;
   transition-duration: 0.3s;
+  font-size: 15px;
+  padding-top: 3px;
+  padding-bottom: 3px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .menu-estados li a:hover {
-  border-left: #002648 solid 3px;
-  color: #002648;
+  background-color: #002648;
+  border-left: #004C93 solid 3px;
+  color: #fff;
   text-decoration: none;
 }
 

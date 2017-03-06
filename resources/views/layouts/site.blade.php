@@ -18,7 +18,7 @@
 
           <ul class="menu-estados">
             @foreach ($listaEstados as $lestado)
-              <li><a href="#"> {{$lestado->estado}} </a> </li>
+              <li><a href="{{url('estado/'.$lestado->estado)}}"> {{$lestado->estado}} </a> </li>
             @endforeach
           </ul>
         </div>

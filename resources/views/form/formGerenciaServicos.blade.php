@@ -11,7 +11,7 @@
               <span class="label label-success"> {{$listaAgencia[0]->nome_fantasia}} </span>
             </h3>
           </div>
-          <form class="" action="{{url('agencia/gerenciaServico')}}" method="post">
+          <form class="" action="{{url('ger-agencia/gerenciaServico')}}" method="post">
             <div class="panel-body">
               {{csrf_field()}}
               <input type="hidden" name="idagencia" value="{{$listaAgencia[0]->idagencia}}">

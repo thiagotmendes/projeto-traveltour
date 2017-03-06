@@ -5,7 +5,7 @@
     <div class="panel panel-default">
       <div class="panel-heading">
         <h2 class="panel-title pull-left"> Agências cadastradas </h3>
-        <a href="{{url('agencia/cadastrar')}}" class="btn btn-info pull-right btn-direito">
+        <a href="{{url('ger-agencia/cadastrar')}}" class="btn btn-info pull-right btn-direito">
           Cadastrar Agência
         </a>
         <a href="#" class="btn btn-warning pull-right btn-direito" data-toggle="modal" data-target="#modalSerivocs">
@@ -52,7 +52,7 @@
                 <td> {{$lista->email}} </td>
                 <td> {{$lista->tel}} </td>
                 <td width='5%' class="text-center">
-                  <a href="{{url('agencia/dados/'.$lista->idagencia)}}" class="btn btn-primary">
+                  <a href="{{url('ger-agencia/dados/'.$lista->idagencia)}}" class="btn btn-primary">
                     <i class="fa fa-eye" aria-hidden="true"></i>
                   </a>
                 </td>
@@ -62,17 +62,17 @@
                   </a>
                 </td>
                 <td width='5%' class="text-center">
-                  <a href="{{url('agencia/adcServicos/'.$lista->idagencia)}}" class="btn btn-warning">
+                  <a href="{{url('ger-agencia/adcServicos/'.$lista->idagencia)}}" class="btn btn-warning">
                     <i class="fa fa-cogs" aria-hidden="true"></i>
                   </a>
                 </td>
                 <td width='5%' class="text-center">
-                  <a href="{{url('agencia/cadastrar/'.$lista->idagencia)}}" class="btn btn-info">
+                  <a href="{{url('ger-agencia/cadastrar/'.$lista->idagencia)}}" class="btn btn-info">
                     <i class="fa fa-pencil-square-o" aria-hidden="true"></i>
                   </a>
                 </td>
                 <td width='5%' class="text-center">
-                  <a href="{{url('agencia/excluir/'.$lista->idagencia)}}" class="btn btn-danger">
+                  <a href="{{url('ger-agencia/excluir/'.$lista->idagencia)}}" class="btn btn-danger">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                   </a>
                 </td>
@@ -123,7 +123,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel"> Adicionar conteudo externo </h4>
       </div>
-      <form class="formAdcLink" action="{{url('agencia/linksExternos')}}" method="post">
+      <form class="formAdcLink" action="{{url('ger-agencia/linksExternos')}}" method="post">
         <div class="modal-body">
             <input type="hidden" name="idAgenciaLink" class="idAgenciaLink" name="" value="">
             {{csrf_field()}}
